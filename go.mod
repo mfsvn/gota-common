@@ -1,4 +1,4 @@
-module gota-common
+module github.com/mfsvn/gota-common
 
 go 1.13
 
