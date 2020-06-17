@@ -14,3 +14,11 @@ func LoadPropsFromUsrHome(filename string) *properties.Properties {
 	}
 	return properties.MustLoadFile(usr.HomeDir + string(os.PathSeparator)+filename, properties.UTF8)
 }
+
+func LoadPrjProps(filename string) *properties.Properties {
+	prjhome, err := os.Getwd()
+	if err != nil {
+		log.Fatal( err )
+	}
+	return properties.MustLoadFile(prjhome + string(os.PathSeparator)+filename, properties.UTF8)
+}
