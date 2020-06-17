@@ -7,7 +7,7 @@ import (
 	"os/user"
 )
 
-func LoadPropsFromUsrHome(filename string) *properties.Properties {
+func LoadPropsUsrHome(filename string) *properties.Properties {
 	usr, err := user.Current()
 	if err != nil {
 		log.Fatal( err )
@@ -15,7 +15,7 @@ func LoadPropsFromUsrHome(filename string) *properties.Properties {
 	return properties.MustLoadFile(usr.HomeDir + string(os.PathSeparator)+filename, properties.UTF8)
 }
 
-func LoadPrjProps(filename string) *properties.Properties {
+func LoadPropsPrj(filename string) *properties.Properties {
 	prjhome, err := os.Getwd()
 	if err != nil {
 		log.Fatal( err )
