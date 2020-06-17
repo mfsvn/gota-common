@@ -4,15 +4,16 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"strconv"
 	"time"
 )
  
 func ToString(x interface{}) string {
 	switch x.(type) {
 	case int:
-		return fmt.Sprintf("%d", x)
+		return strconv.Itoa(x.(int))
 	case int64:
-		return fmt.Sprintf("%d", x)
+		return strconv.FormatInt(x.(int64), 10)
 	case int32:
 		return fmt.Sprintf("%d", x)
 	case sql.NullTime:
@@ -35,14 +36,14 @@ func ToString(x interface{}) string {
 	case sql.NullInt64:
 		y, _ := x.(sql.NullInt64)
 		if y.Valid {
-			return fmt.Sprintf("%d", y.Int64)
+			return strconv.FormatInt(x.(int64), 10)
 		} else {
 			return "null"
 		}
 	case sql.NullString:
 		y, _ := x.(sql.NullString)
 		if y.Valid {
-			return fmt.Sprintf("%s", y.String)
+			return y.String
 		} else {
 			return "null"
 		}
@@ -62,9 +63,9 @@ func ToString(x interface{}) string {
 		y, _ := x.([]byte)
 		return string(y)
 	default:
-		return "???"
+		return "!!!Unknown!!!"
 	}
-	return "???"
+	return "!!!Unknown!!!"
 }
 
 func CloseRows(rows *sql.Rows) {
@@ -74,6 +75,6 @@ func CloseRows(rows *sql.Rows) {
 
 func CheckErr(err error) {
 	if err != nil {
-		log.Panicln()
+		log.Fatalln(err)
 	}
 }
