@@ -16,6 +16,5 @@ func LoadConfig() *properties.Properties {
 		}
 		P = properties.MustLoadFile(usr.HomeDir+"/config/ipc.properties", properties.UTF8)
 	}
-
 	return P
 }
