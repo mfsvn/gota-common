@@ -4,6 +4,7 @@ import (
 	"github.com/magiconair/properties"
 	"log"
 	"os/user"
+	"path/filepath"
 )
 
 func LoadPropsFromUsrHome(filename string) *properties.Properties {
@@ -11,5 +12,5 @@ func LoadPropsFromUsrHome(filename string) *properties.Properties {
 	if err != nil {
 		log.Fatal( err )
 	}
-	return properties.MustLoadFile(usr.HomeDir+filename, properties.UTF8)
+	return properties.MustLoadFile(usr.HomeDir + string(filepath.Separator)+filename, properties.UTF8)
 }
