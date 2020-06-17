@@ -53,6 +53,8 @@ func ToString(x interface{}) string {
 		} else {
 			return "null"
 		}
+	case float64:
+		return fmt.Sprintf("%f", x)
 	case string:
 		y, _ := x.(string)
 		return y
