@@ -65,7 +65,6 @@ func ToString(x interface{}) string {
 	default:
 		return "!!!Unknown!!!"
 	}
-	return "!!!Unknown!!!"
 }
 
 func CloseRows(rows *sql.Rows) {
