@@ -51,7 +51,7 @@ func ToString(x interface{}) string {
 		y, _ := x.(sql.NullFloat64)
 		if y.Valid {
 			//return fmt.Sprintf("%f", y.Float64)
-			return strconv.FormatFloat(x.(float64), 'f', -1, 64)
+			return strconv.FormatFloat(y.Float64, 'f', -1, 64)
 		} else {
 			return "null"
 		}
