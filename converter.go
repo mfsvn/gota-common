@@ -123,7 +123,7 @@ func ToJson(x interface{}) string {
 		if len(z) == 0 {
 			return ""
 		}
-		return string(y)
+		return string(y) + ""
 	default:
 		return "!!!Unknown-!!!"
 	}
