@@ -119,6 +119,10 @@ func ToJson(x interface{}) string {
 		return "\"" +  y + "\""
 	case []byte:
 		y, _ := x.([]byte)
+		z := string(y)
+		if len(z) == 0 {
+			return ""
+		}
 		return string(y)
 	default:
 		return "!!!Unknown-!!!"
